@@ -50,6 +50,7 @@ class DisjointSet{
     public:
     vector<int> parent;
     vector<int> rank;
+    int sets=0;
     void makeset(int totalV){
         parent.resize(totalV);
         rank.resize(totalV);
@@ -60,6 +61,7 @@ class DisjointSet{
         for(int i=0;i<rank.size();i++){
             rank[i]=1;
         }
+        sets=totalV;
     }
     int find(int v){
         if(parent[v]==v){
@@ -86,6 +88,11 @@ class DisjointSet{
             parent[lx]=ly;
             rank[ly]++;
         }
+        sets--;
+    }
+
+    int CountSets(){
+        return sets;
     }
 
 };
