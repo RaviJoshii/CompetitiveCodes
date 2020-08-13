@@ -1,5 +1,5 @@
-// https://leetcode.com/problems/is-graph-bipartite/
-//  Is Graph Bipartite?
+// https://leetcode.com/problems/possible-bipartition/
+// Possible Bipartition
 #include<bits/stdc++.h>
 using namespace std;
 class Solution {
@@ -51,6 +51,23 @@ public:
         }
         return true;
     }
+    bool possibleBipartition(int N, vector<vector<int>>& dislikes) {
+        //making graph
+        vector<vector<int>> graph(N+1);
+        for(int i=0;i<dislikes.size();i++){
+            int x=dislikes[i][0];
+            int y=dislikes[i][1];
+            graph[x].push_back(y);
+            graph[y].push_back(x);
+        }
+        return isBipartite(graph);
+        
+        
+    }
 };
-// https://leetcode.com/problems/is-graph-bipartite/
-// Is Graph Bipartite
+int main(){
+    vector<vector<int>> vec={{1,2},{1,3},{2,3}};
+    Solution s;
+    cout<<s.possibleBipartition(4, vec);
+    return 0;
+}

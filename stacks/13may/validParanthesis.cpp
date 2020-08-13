@@ -44,3 +44,9 @@ public:
         
     }
 };
+int main(){
+    string str="((()()))";
+    Solution s;
+    cout<<s.isValid(str);
+    return 0;
+}
